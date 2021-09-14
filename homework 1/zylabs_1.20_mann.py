@@ -1,3 +1,5 @@
+#Blake Mann
+#1832387
 user_num = int(input('Enter integer:\n'))
 print('You entered:', user_num)
 num2 = user_num**2
