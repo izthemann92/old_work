@@ -1,2 +1,1 @@
-x= 9
-sdfasdgasedgtn vc
+x = 8
