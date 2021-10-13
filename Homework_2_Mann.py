@@ -7,6 +7,7 @@ months = {"January": "01", "February": "02", "March": "03", "April": "04", "May"
 
 
 input_dates = open('inputDates.txt', 'r')
+output_date = open('parsedDates.txt', 'w')
 
 
 
@@ -33,7 +34,7 @@ def validtime(dates):
 def reformater(dates):
     date = time.strptime(dates, "%Y%m%d")
     date = time.strftime("%m/%d/%Y",date)
-    print(date)
+    return date
 
 
 
@@ -54,5 +55,7 @@ for line in input_dates:
                 validD.append(date)
 
 for dvalue in validD:
-    reformater(dvalue)
+    output_date.write(reformater(dvalue)+"\n")
+
+output_date.close()
 
