@@ -1,15 +1,13 @@
-# Blake Mann
+# Name: Blake Mann
+# PSID: 1832387
 import datetime
 import time
 months = {"January": "01", "February": "02", "March": "03", "April": "04", "May": "05", "June": "06", "July": "07", "August": "08",
           "September": "09", "October": "10", "November": "11", "December": "12"}
 
-datelist = []
-while True:
-    date2 = input("Please enter your date: ")
-    if len(date2) == 2:
-        break
-    datelist.append(date2)
+
+input_dates = open('inputDates.txt', 'r')
+
 
 
 def month_checker(string):
@@ -20,10 +18,6 @@ def month_checker(string):
             flag = True
     return flag
 
-def reformater(dates):
-    date = time.strptime(dates, "%Y%m%d")
-    date = time.strftime("%m/%d/%Y",date)
-    print(date)
 
 def validtime(dates):
     today = str(datetime.datetime.today())
@@ -35,8 +29,17 @@ def validtime(dates):
     else:
         return True
 
+
+def reformater(dates):
+    date = time.strptime(dates, "%Y%m%d")
+    date = time.strftime("%m/%d/%Y",date)
+    print(date)
+
+
+
+
 validD = []
-for line in datelist:
+for line in input_dates:
     if line != "-1":
         lis = line.split()
         if month_checker(lis[0]):
@@ -44,11 +47,12 @@ for line in datelist:
             day = lis[1]
             year = lis[2]
             day = day.strip(",")
-            if len(day) == 1:
+            if len(day)==1:
                 day = "0"+day
             date = year+months[month]+day
             if validtime(date):
-                    validD.append(date)
+                validD.append(date)
 
 for dvalue in validD:
     reformater(dvalue)
+
