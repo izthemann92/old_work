@@ -1,7 +1,7 @@
 #Blake Mann
 #PSID 1832387
 
-word = input('Enter a password: ')
+word = input()
 password = ''
 i = 0
 while i < len(word):
