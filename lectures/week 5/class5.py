@@ -99,7 +99,7 @@
 # print_my_friend(My_list)
 
 
-#SLIDE 20
+# #SLIDE 20
 # def print_location(document,*args,**kwargs):
 # 	print('The main documents is', document)
 # 	if len(args)>0:
@@ -145,12 +145,12 @@
 
 
 #SLIDE 27
-def add(a,b):
-		return a+b
-def multiply(a,b):
-		return (a*b)
-def operate(operation,a,b):
-		return operation(a,b)
-
-# print(operate(add,8,9))
-print(operate(multiply,6,5))
+# def add(a,b):
+# 		return a+b
+# def multiply(a,b):
+# 		return (a*b)
+# def operate(operation,a,b):
+# 		return operation(a,b)
+#
+# # print(operate(add,8,9))
+# print(operate(multiply,6,5))

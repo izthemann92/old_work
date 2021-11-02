@@ -49,6 +49,7 @@
 # my_string=' and '.join([name1,name2,name3,name4])
 # print(my_string)
 
+####################################
 #SLIDE 17
 # my_file=open('data.txt','r')
 # file_contents=my_file.read() #reads all the data into a single string
