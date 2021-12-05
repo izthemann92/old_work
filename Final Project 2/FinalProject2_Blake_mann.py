@@ -170,6 +170,9 @@ while item_q != 'q':
                 ## sorting the item type in item1
                 item1.append(p[i])
 
+    item1 = list(dict.fromkeys(item1))
+    man1 = list(dict.fromkeys(man1))
+
     for y in range(len(item_c)):
         abc = list(item_c[y])
 
@@ -219,6 +222,7 @@ while item_q != 'q':
         today = datetime.now().date()
         service = xyz[4]
         past_service = datetime.strptime(service, '%m/%d/%Y').date()
+
         if xyz[5] == 'damaged':
             dmg.append(final_full2[c])
         elif past_service < today:
@@ -227,6 +231,7 @@ while item_q != 'q':
             also.append(final_full2[c])
         else:
             pass
+
     if not also:
         pass
     else:
