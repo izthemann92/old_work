@@ -135,7 +135,7 @@ with open(finalFull, newline='') as f:
     final_full2 = [tuple(row) for row in reader]
 
 
-item_q = []
+item_q = 1
 item_c = []
 
 man1 = [] # used to store manufacturer
@@ -148,6 +148,8 @@ past = []
 also = []
 while item_q != 'q':
     item_q = input('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
+    if item_q == 'q':
+        break
     p = item_q.split(' ')
 
     # creating a for loop to use the query to find matches and store those matches in item_c
@@ -190,12 +192,13 @@ while item_q != 'q':
         return sorted(final_selection, key=lambda l: l[3], reverse = True)
 
     final_selection2 = sorted(final_selection, key = lambda x :x[3], reverse = True)
-
     for i in range(len(final_selection2)):
         xyz = list(final_selection2[i])
         today = datetime.now().date()
         service = xyz[4]
         past_service = datetime.strptime(service, '%m/%d/%Y').date()
+        temp = xyz[3]
+        price = int(temp)
 
         if not final_selection2:
             print('No such item in inventory')
@@ -207,6 +210,7 @@ while item_q != 'q':
 
         elif len(final_selection2) > 1:
             extra.append(final_selection2[i])
+
         else:
             extra.append(final_selection2[i])
 
@@ -216,6 +220,8 @@ while item_q != 'q':
         extra = ['none']
     else:
         print('Your item is:', extra[0])
+    ## looking for suggestions if any available
+
 
     for c in range(len(final_full2)):
         xyz = list(final_full2[c])
@@ -231,6 +237,10 @@ while item_q != 'q':
             also.append(final_full2[c])
         else:
             pass
+    print('also',also)
+
+    for k in range(len(also)):
+        xyz = list(also[k])
 
     if not also:
         pass
