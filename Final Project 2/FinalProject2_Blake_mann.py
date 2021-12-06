@@ -169,6 +169,9 @@ while item_q != 'q':
             elif p[i] == xyz[2]:
                 ## sorting the item type in item1
                 item1.append(p[i])
+    # added if statment to correct index error
+    if not item1:
+        item1 = 'extra'
 
     item1 = list(dict.fromkeys(item1))
     man1 = list(dict.fromkeys(man1))
@@ -221,7 +224,7 @@ while item_q != 'q':
     ## looking for suggestions if any available
 
 
-    for c in range(len(final_full2)):
+    for c in range(0, len(final_full2)):
         xyz = list(final_full2[c])
         today = datetime.now().date()
         service = xyz[4]
@@ -231,14 +234,20 @@ while item_q != 'q':
             dmg.append(final_full2[c])
         elif past_service < today:
             past.append(final_full2[c])
-        elif item1[0] in final_full2[c] and final_full2[c] != extra[0]:
+        elif item1[0] in final_full2[c] and final_full2[c] != extra[0]: # raising index error if item1 was empty
             also.append(final_full2[c])
         else:
             pass
-    print('also',also)
 
-    for k in range(len(also)):
-        xyz = list(also[k])
+
+    # print(man1)
+    # print(item1)
+    # print(final_full2)
+
+
+
+
+
 
     if not also:
         pass
@@ -254,8 +263,5 @@ while item_q != 'q':
     past = []
     also = []
     item_q = input('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
-
-
-
 
 
