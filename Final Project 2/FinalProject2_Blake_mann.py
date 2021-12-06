@@ -135,7 +135,7 @@ with open(finalFull, newline='') as f:
     final_full2 = [tuple(row) for row in reader]
 
 
-item_q = 1
+item_q = 'Apple phone' #nput('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
 item_c = []
 
 man1 = [] # used to store manufacturer
@@ -147,9 +147,7 @@ extra = []
 past = []
 also = []
 while item_q != 'q':
-    item_q = input('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
-    if item_q == 'q':
-        break
+
     p = item_q.split(' ')
 
     # creating a for loop to use the query to find matches and store those matches in item_c
@@ -255,6 +253,7 @@ while item_q != 'q':
     extra = []
     past = []
     also = []
+    item_q = input('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
 
 
 
