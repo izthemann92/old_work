@@ -6,9 +6,9 @@ from datetime import datetime
 
 strp = datetime.strptime
 # assigning the list variables
-manL = 'ManufacturerList.csv'
-priceL = 'PriceList.csv'
-serviceD = 'ServiceDatesList.csv'
+manL = 'FinalProjectManufacturerList.csv'
+priceL = 'FinalProjectPriceList.csv'
+serviceD = 'FinalProjectServiceDatesList.csv'
 
 # opening all files and putting them in a tuple
 with open(manL, newline='') as f:
