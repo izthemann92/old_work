@@ -49,7 +49,6 @@ for x in range(len(data)):
         temp = xyz[3]
         date = xyz[5]
         price = xyz[4]
-        # if temp == 'damaged':
         xyz[4] = date
         xyz[5] = temp
         xyz[3] = price
@@ -62,7 +61,7 @@ def formatter(listlet):
     stringlet = ""
     for k in listlet:
         for i in k:
-            if i == "" or i == "damaged":  # had to go through and look for damaged so it would out put correctly
+            if i == "" or i == "damaged":             # had to go through and look for damaged so it would out put correctly
                 stringlet = stringlet + i
             else:
                 stringlet = stringlet + i + ","
@@ -135,13 +134,13 @@ with open(finalFull, newline='') as f:
     final_full2 = [tuple(row) for row in reader]
 
 
-item_q = 'Apple phone' #nput('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
+item_q = input('\nEnter a query for an item by searching Manufacturer and item type or press \'q\' to exit: ')
 item_c = []
 
 man1 = [] # used to store manufacturer
 item1 = [] # used to store the specific item
 selection = [] # if an row in final list matches the above variables it is stored here
-exp_date = [] # needed a emptey set for expiration dates
+exp_date = [] # needed a empty set for expiration dates
 dmg = [] #
 extra = []
 past = []
@@ -169,9 +168,13 @@ while item_q != 'q':
             elif p[i] == xyz[2]:
                 ## sorting the item type in item1
                 item1.append(p[i])
-    # added if statment to correct index error
+
+
+    # added if statement to correct index error
     if not item1:
         item1 = 'extra'
+    elif not man1:
+        man1 = 'extra'
 
     item1 = list(dict.fromkeys(item1))
     man1 = list(dict.fromkeys(man1))
@@ -179,12 +182,8 @@ while item_q != 'q':
     for y in range(len(item_c)):
         abc = list(item_c[y])
 
-      # if not man1 or not item1 was added in case there is no matches or only one matching term
-        if not man1 or not item1:
-
-            break
-        elif man1[0] in abc and item1[0] in abc:
-            selection.append(item_c[y]) #keeping the selection if manufacturer and item found a match
+        if man1[0] in abc and item1[0] in abc:
+            selection.append(item_c[y])                  #keeping the selection if manufacturer and item found a match
 
     final_selection = list(dict.fromkeys(selection))
 
@@ -193,14 +192,13 @@ while item_q != 'q':
         return sorted(final_selection, key=lambda l: l[3], reverse = True)
 
     final_selection2 = sorted(final_selection, key = lambda x :x[3], reverse = True)
+
     for i in range(len(final_selection2)):
         xyz = list(final_selection2[i])
         today = datetime.now().date()
         service = xyz[4]
         past_service = datetime.strptime(service, '%m/%d/%Y').date()
         temp = xyz[3]
-        price = int(temp)
-
         if not final_selection2:
             print('No such item in inventory')
         elif xyz[5] == 'damaged':
@@ -212,8 +210,6 @@ while item_q != 'q':
         elif len(final_selection2) > 1:
             extra.append(final_selection2[i])
 
-        else:
-            extra.append(final_selection2[i])
 
 
     if not extra:
@@ -238,16 +234,6 @@ while item_q != 'q':
             also.append(final_full2[c])
         else:
             pass
-
-
-    # print(man1)
-    # print(item1)
-    # print(final_full2)
-
-
-
-
-
 
     if not also:
         pass
