@@ -124,20 +124,23 @@ def dateorder(item):
     return item[4]
 
 # writing all new list to the desired csv
-finalFull = 'FinalProjectFullInventory.csv'
+finalFull = '1FinalProjectFullInventory.csv'
 with open(finalFull, 'w') as j:
     j.write(formatter(sorted(data, key=brand)))
 
-finalLaptop = 'FinalProjectLaptopInventory.csv'
+finalLaptop = '1FinalProjectLaptopInventory.csv'
 with open(finalLaptop, 'w') as g:
     g.write(formatter(sorted(laptoplist, key=manid)))
-finalexp = 'FinalProjectPastServiceDateInventory.csv'
+finalexp = '1FinalProjectPastServiceDateInventory.csv'
 with open(finalexp, 'w') as f:
     f.write(formatter(sorted(exp_serv, key=lambda sub: strp(sub[4], "%m/%d/%Y"))))
 
-finalDamage = 'FinalProjectDamagedInventory.csv'
+finalDamage = '1FinalProjectDamagedInventory.csv'
 with open(finalDamage, 'w') as h:
     h.write(formatter(sorted(damage, key=itemprice, reverse=True)))
 
 
 
+#should produce new files with 2 in front of them
+
+# sorry 1
